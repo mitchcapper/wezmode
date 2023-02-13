@@ -167,7 +167,7 @@ const getKeyTables = () => state.keyTables;
 const handleRightStatusUpdate = () => {
   wezterm.on("update-right-status", (window) => {
   	const ourPaneText = getModeText(window.active_key_table() ?? "normal");
-  	if (ourPaneText)
+  	if (ourPaneText == null || ourPaneText === "")
     	window.set_right_status(ourPaneText);
   });
 };
